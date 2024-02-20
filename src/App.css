@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    background: #14131a;
+    --bg-primary: #1c1b23;
+    --btn-highlight: #2bd576;
+    --btn-primary: #3a3942;
+    --btn-secondary: #1c1b23;
+    --text-primary: #8b8a91;
+    --text-secondary: #79787f;
+    --text-info: #4f4f52;
+    --text-highlight: #fff;
+}
+
