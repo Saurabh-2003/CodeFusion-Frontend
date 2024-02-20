@@ -1,8 +1,7 @@
 import io from "socket.io-client";
-const backend = process.env.BACKEND
 
 const skt = ()=>{
-        return io(backend);
+        return io(process.env.BACKEND);
 }
 
 export default skt;
