@@ -19,7 +19,7 @@ function HeadBar({
   else statusClass += "border-red-500 border text-red-500";
 
   return (
-    <div className="flex flex-wrap mt-2  items-center bg-slate-800 mb-4 px-6 py-2 justify-between  gap-x-10 gap-y-2">
+    <div className="flex flex-wrap py-2 items-center bg-slate-800  px-6  justify-evenly  gap-x-10 gap-y-2">
      
 
       <div className="flex gap-2">

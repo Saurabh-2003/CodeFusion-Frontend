@@ -3,9 +3,9 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import EditorHead from "./EditorHead";
-import CreateRoom from "./CreateRoom";
-import EnterRoom from "./EnterRoom";
 import { ReactNotifications } from "react-notifications-component";
+import Footer from "./Footer";
+import CreateOrJoin from "./CreateOrJoin";
 
 function App() {
   const [userName, setUserName] = useState(localStorage.getItem("name") ?? "");
@@ -22,17 +22,14 @@ function App() {
           <Route path="/" element={<Home setUserName={setUserName} />} />
           <Route
             path="/create"
-            element={<CreateRoom setUserName={setUserName} />}
-          />
-          <Route
-            path="/join"
-            element={<EnterRoom setUserName={setUserName} />}
+            element={<CreateOrJoin setUserName={setUserName} />}
           />
           <Route
             path="/editor/:roomId"
             element={<EditorHead userName={userName} />}
           />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

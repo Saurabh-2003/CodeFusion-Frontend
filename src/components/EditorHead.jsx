@@ -9,7 +9,7 @@ function EditorHead({ userName }) {
   return (
     <>
       <NameBar allUsers={allUsers} />
-      <div className="flex max-sm:flex-col mx-4 my-4 min-h-[75lvh]  ">
+      <div className="flex max-sm:flex-col mx-4 my-4 h-[88lvh] max-sm:min-h-lvh ">
         <ActiveUsers allUsers={allUsers} />
         <Controller userName={userName} setAllUsers={setAllUsers} />
       </div>

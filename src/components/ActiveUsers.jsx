@@ -18,7 +18,7 @@ function ActiveUsers({ allUsers }) {
   return (
     <div className=" bg-primary mx-2 w-32 max-sm:mb-6 rounded-xl max-sm:w-full border border-slate-700 overflow-hidden ">
       <div className="text-slate-100 sm:mb-6  text-center pt-4 pb-4 bg-emerald-600">Connected</div>
-      <div className="items-center gap-6 justify-center w-full overflow-y-scroll sm:h-[63lvh] max-sm:overflow-x-scroll flex flex-col max-sm:flex-row max-sm:py-2">
+      <div className="items-center gap-6 justify-center w-full overflow-y-auto sm:h-[63lvh] max-sm:overflow-x-scroll flex flex-col max-sm:flex-row max-sm:py-2">
         {allUsers.map((item) => (
           <div className={`${animateClass}  mx-auto flex flex-col items-center justify-center`}key={rand()}>
             <div className="text-lg text-white bg-emerald-500 rounded-full w-12 h-12 grid place-items-center ">{String(item).charAt(0)}</div>

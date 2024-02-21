@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {UserRound} from 'lucide-react'
 
 function EnterRoom({ setUserName }) {
   const [roomId, setRoomId] = useState("");
@@ -29,9 +30,9 @@ function EnterRoom({ setUserName }) {
         }}
         required
       />
-      <button className="bg-emerald-500 py-2 rounded-lg transition-transform 
+      <button className="bg-emerald-600 flex items-center justify-center gap-2 border-2 border-emerald-500 text-stone-100 py-2 rounded-lg transition-transform 
                           transform-gpu hover:scale-105 focus:outline-none">
-        Join
+        <UserRound/>Join
       </button>
 
 

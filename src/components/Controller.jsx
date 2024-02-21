@@ -154,27 +154,29 @@ function Controller({ userName, setAllUsers }) {
     setTheme(themeMap2.get(theme));
   }
   return (
-    <div className="bg-primary h-fit p-2 border border-slate-600 px-2  rounded-lg w-full ">
-      <HeadBar
-        currTheme={themeMap.get(theme)}
-        setThemeHandler={setThemeHandler}
-        currLang={lang}
-        setLangHandler={setLang}
-        socket={socket}
-        roomId={roomId}
-        userName={userName}
-        editorData={editorData}
-        status={status}
-        runCode={runCode}
-        setOutData={setOutData}
-      />
+    <div className="bg-primary p-2 border border-slate-600 px-2 max-sm:min-h-lvh flex-wrap  rounded-lg w-full ">
+      <div className="min-h-[10%]">
+        <HeadBar
+          currTheme={themeMap.get(theme)}
+          setThemeHandler={setThemeHandler}
+          currLang={lang}
+          setLangHandler={setLang}
+          socket={socket}
+          roomId={roomId}
+          userName={userName}
+          editorData={editorData}
+          status={status}
+          runCode={runCode}
+          setOutData={setOutData}
+        />
+      </div>
 
-      <div className="flex h-full w-full gap-4 max-sm:flex-col">
-        <div className="w-2/4 h-full max-sm:w-full ">
+      <div className="flex h-[90%]  w-full gap-4 max-sm:flex-col">
+        <div className="w-1/2 h-full max-h-full max-sm:w-full ">
           <Editor
             themes={theme}
             lang={lang}
-            classN='h-[62lvh]'
+            classN='h-full'
             readOnly={false}
             socket={socket}
             setEditorData={setEditorData}
@@ -189,9 +191,9 @@ function Controller({ userName, setAllUsers }) {
 
 
 
-        <div className="flex flex-col gap-4 max-sm:w-full w-2/4 h-[62lvh] ">
-          <div className="w-full flex flex-col h-1/2">
-            <div className="text-slate-200 bg-zinc-600 text-center">INPUT</div>
+        <div className="flex flex-col gap-1 max-sm:w-full w-1/2 h-full ">
+          <div className="w-full flex flex-col max-h-1/2 h-1/2 overflow-hidden">
+            <div className="text-slate-200 bg-slate-600 text-center">INPUT</div>
             <Editor
               themes={theme}
               classN='h-full'
@@ -206,8 +208,8 @@ function Controller({ userName, setAllUsers }) {
               outData={null}
             />
           </div>
-          <div className="flex flex-col w-full h-1/2">
-            <div className="text-slate-200 text-center bg-zinc-600">OUTPUT</div>
+          <div className="flex flex-col w-full max-h-1/2 h-1/2 overflow-hidden">
+            <div className="text-stone-200 text-center bg-slate-600">OUTPUT</div>
             <Editor
               themes={theme}
               classN="h-full"
