@@ -1,18 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Controller from "./Controller";
 import ActiveUsers from "./ActiveUsers";
 import NameBar from "./NameBar";
+import Loading from "./Loading";
+import skt from "../sockets";
 
 function EditorHead({ userName }) {
   const [allUsers, setAllUsers] = useState([userName]);
+  const [loading, setLoading] = useState(true);
+  const socket = useRef(null);
+
+  useEffect(() => {
+    socket.current = skt();
+
+    socket.current.on("connect", () => {
+      setLoading(false);
+    });
+  }, []);
 
   return (
     <>
-      <NameBar allUsers={allUsers} />
-      <div className="flex max-sm:flex-col mx-4 my-4 h-[88lvh] max-sm:min-h-lvh ">
-        <ActiveUsers allUsers={allUsers} />
-        <Controller userName={userName} setAllUsers={setAllUsers} />
-      </div>
+      {loading ? ( // Corrected: Added curly braces around the condition
+        <Loading />
+      ) : (
+        <>
+          <NameBar allUsers={allUsers} />
+          <div className="flex max-sm:flex-col mx-4 my-4 h-[88lvh] max-sm:min-h-lvh ">
+            <ActiveUsers allUsers={allUsers} />
+            <Controller userName={userName} setAllUsers={setAllUsers} socket={socket} /> {/* Corrected: Passed socket */}
+          </div>
+        </>
+      )}
     </>
   );
 }

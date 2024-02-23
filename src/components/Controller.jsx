@@ -9,8 +9,9 @@ import {  xcodeDark } from "@uiw/codemirror-theme-xcode";
 import { useParams } from "react-router-dom";
 import skt from "../sockets";
 import Notify from "./notification";
+import Loading from './Loading'
 
-function Controller({ userName, setAllUsers }) {
+function Controller({ userName, setAllUsers, socket}) {
   const [theme, setTheme] = useState(sublime);
   const [lang, setLang] = useState("cpp");
   const [editorData, setEditorData] = useState("");
@@ -18,15 +19,16 @@ function Controller({ userName, setAllUsers }) {
   const [outData, setOutData] = useState("");
   const [status, setStatus] = useState("Idle");
   const { roomId } = useParams();
-  const socket = useRef(null);
   const [subId, setSubId] = useState("");
   const idRef = useRef(null);
   const myInterval = useRef(null);
   idRef.current = subId;
 
   useEffect(() => {
-    socket.current = skt();
+
     console.log(socket.current);
+
+
     socket.current.emit("join", roomId, userName);
 
     socket.current.on("codechange", (c) => {
@@ -57,6 +59,7 @@ function Controller({ userName, setAllUsers }) {
       socket.current.off("inputchange");
     };
   }, [roomId, setAllUsers, userName]);
+
 
   useEffect(() => {
     socket.current.off("newjoin");
@@ -153,6 +156,8 @@ function Controller({ userName, setAllUsers }) {
   function setThemeHandler(theme) {
     setTheme(themeMap2.get(theme));
   }
+
+
   return (
     <div className="bg-primary p-2 border border-slate-600 px-2 max-sm:min-h-lvh flex-wrap  rounded-lg w-full ">
       <div className="min-h-[10%]">
