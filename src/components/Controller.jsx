@@ -159,8 +159,8 @@ function Controller({ userName, setAllUsers, socket}) {
 
 
   return (
-    <div className="bg-primary p-2 border border-slate-600 px-2 max-sm:min-h-lvh flex-wrap  rounded-lg w-full ">
-      <div className="min-h-[10%]">
+    <div className=" border-[1px] border-slate-500 overflow-hidden rounded-lg flex flex-col min-h-[80lvh] w-full">
+      <div className="h-fit">
         <HeadBar
           currTheme={themeMap.get(theme)}
           setThemeHandler={setThemeHandler}
@@ -176,8 +176,8 @@ function Controller({ userName, setAllUsers, socket}) {
         />
       </div>
 
-      <div className="flex h-[90%]  w-full gap-4 max-sm:flex-col">
-        <div className="w-1/2 h-full max-h-full max-sm:w-full ">
+      <div className="h-full max-sm:flex-col flex flex-wrap">
+        <div className="w-1/2 max-sm:w-full h-[80lvh] max-sm:border-2 border-r-2 border-gray-500">
           <Editor
             themes={theme}
             lang={lang}
@@ -196,12 +196,12 @@ function Controller({ userName, setAllUsers, socket}) {
 
 
 
-        <div className="flex flex-col gap-1 max-sm:w-full w-1/2 h-full ">
-          <div className="w-full flex flex-col max-h-1/2 h-1/2 overflow-hidden">
-            <div className="text-slate-200 bg-slate-600 text-center">INPUT</div>
+        <div className=" h-[80lvh] max-sm:w-full flex flex-col flex-wrap w-1/2">
+          <div className=" h-1/2 ">
+            <div className="text-slate-200 h-[8%] bg-slate-600 text-center">INPUT</div>
             <Editor
               themes={theme}
-              classN='h-full'
+              classN='h-[92%]'
               lang="textile"
               readOnly={false}
               socket={socket}
@@ -213,11 +213,11 @@ function Controller({ userName, setAllUsers, socket}) {
               outData={null}
             />
           </div>
-          <div className="flex flex-col w-full max-h-1/2 h-1/2 overflow-hidden">
-            <div className="text-stone-200 text-center bg-slate-600">OUTPUT</div>
+          <div className="h-1/2">
+            <div className="text-stone-200 h-[8%] text-center bg-slate-600">OUTPUT</div>
             <Editor
               themes={theme}
-              classN="h-full"
+              classN="h-[92%]"
               lang="textile"
               readOnly={true}
               socket={null}

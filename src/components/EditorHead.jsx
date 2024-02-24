@@ -16,16 +16,16 @@ function EditorHead({ userName }) {
     socket.current.on("connect", () => {
       setLoading(false);
     });
-  }, []);
+  }, [socket]);
 
   return (
     <>
-      {loading ? ( // Corrected: Added curly braces around the condition
+      {loading ? ( 
         <Loading />
       ) : (
         <>
           <NameBar allUsers={allUsers} />
-          <div className="flex max-sm:flex-col mx-4 my-4 h-[88lvh] max-sm:min-h-lvh ">
+          <div className="flex max-sm:flex-col mx-4 my-4 h-full ">
             <ActiveUsers allUsers={allUsers} />
             <Controller userName={userName} setAllUsers={setAllUsers} socket={socket} /> {/* Corrected: Passed socket */}
           </div>
